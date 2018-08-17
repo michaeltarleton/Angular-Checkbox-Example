@@ -5,16 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { RecipeComponentComponent } from './recipe/recipe-component/recipe-component.component';
-import { IndridientComponentComponent } from './recipe/indridient-component/indridient-component.component';
-import { IngridientComponentComponent } from './recipe/ingridient-component/ingridient-component.component';
+import { IngredientComponentComponent } from './recipe/ingredient-component/ingredient-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipeComponentComponent,
-    IndridientComponentComponent,
-    IngridientComponentComponent
+    IngredientComponentComponent
   ],
   imports: [
     BrowserModule,
