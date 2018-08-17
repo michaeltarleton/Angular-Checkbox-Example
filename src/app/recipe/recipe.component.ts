@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-recipe-component',
   templateUrl: './recipe-component.component.html',
   styles: []
 })

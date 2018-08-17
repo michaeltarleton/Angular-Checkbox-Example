@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ingredient-component',
+  selector: 'ingredient',
   template: `
     <p>
       ingredient-component works!
