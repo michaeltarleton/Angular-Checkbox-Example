@@ -1,2 +1,2 @@
-export * from './ingredient-component/ingredient-component.component'
-export * from './recipe-component/recipe-component.component'
+export * from './ingredient/ingredient.component'
+export * from './recipe.component'

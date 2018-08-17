@@ -1,0 +1,12 @@
+<div>
+    <h1>Recipe</h1>
+
+    <h2>Recipe Name</h2>
+    {{recipe.name}}
+
+    <h2>Ingredients</h2>
+    <p>
+        <input type="checkbox" /> <label>select all</label>
+    </p>
+    <ingredient-list [recipe]="recipe"></recipe-list>
+</div>

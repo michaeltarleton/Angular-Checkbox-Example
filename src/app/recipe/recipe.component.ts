@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-component',
-  template: `
-    <p>
-      recipe-component works!
-    </p>
-  `,
+  templateUrl: './recipe-component.component.html',
   styles: []
 })
 export class RecipeComponentComponent implements OnInit {
@@ -16,6 +12,9 @@ export class RecipeComponentComponent implements OnInit {
 
   ngOnInit() {
     this.recipe = RECIPE
+  }
+
+  onIngredientChange(): void {
   }
 }
 
