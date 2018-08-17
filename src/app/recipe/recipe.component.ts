@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './recipe-component.component.html',
+  templateUrl: './recipe.component.html',
   styles: []
 })
-export class RecipeComponentComponent implements OnInit {
+export class RecipeComponent implements OnInit {
   recipe: IRecipe
 
   constructor() { }

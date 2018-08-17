@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: []
 })
-export class PageNotFoundComponentComponent implements OnInit {
+export class PageNotFoundComponent implements OnInit {
 
   constructor() { }
 
