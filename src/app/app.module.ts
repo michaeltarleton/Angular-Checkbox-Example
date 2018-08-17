@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipeComponentComponent } from './recipe/recipe-component/recipe-component.component';
 import { IngredientComponentComponent } from './recipe/ingredient-component/ingredient-component.component';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipeComponentComponent,
-    IngredientComponentComponent
+    IngredientComponentComponent,
+    PageNotFoundComponentComponent
   ],
   imports: [
     BrowserModule,
