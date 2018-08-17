@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   templateUrl: './recipe.component.html',
   styles: []
 })
+
 export class RecipeComponent implements OnInit {
+
   recipe: IRecipe
+  allIngredientsSelected: boolean
 
   constructor() { }
 
@@ -13,18 +16,25 @@ export class RecipeComponent implements OnInit {
     this.recipe = RECIPE
   }
 
-  onIngredientChange(): void {
+  handleIngredientsChanged(allIngredientsSelected: boolean): void {
+    this.allIngredientsSelected = allIngredientsSelected
+  }
+
+  handleSelectAllChecked(checked: boolean): void {
+    this.recipe.ingredients = checked
+      ? this.recipe.ingredients.map(i => { i.checked = true; return i })
+      : this.recipe.ingredients.map(i => { i.checked = false; return i })
   }
 }
 
-export interface IIngredients {
+export interface IIngredient {
   name: string,
   checked: boolean
 }
 
 export interface IRecipe {
   name: string,
-  ingredients: IIngredients[]
+  ingredients: IIngredient[]
 }
 
 const RECIPE: IRecipe = {

@@ -6,7 +6,7 @@
 
     <h2>Ingredients</h2>
     <p>
-        <input type="checkbox" /> <label>select all</label>
+        <input type="checkbox" [checked]="allIngredientsSelected" (change)="handleSelectAllChecked($event.target.checked)" /><label>select all</label>
     </p>
-    <ingredient-list [recipe]="recipe"></ingredient-list>
+    <ingredient-list [recipe]="recipe" (ingredientsChanged)="handleIngredientsChanged($event)"></ingredient-list>
 </div>

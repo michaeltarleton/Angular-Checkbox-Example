@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IRecipe } from '../recipe.component';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { IRecipe, IIngredient } from '../recipe.component';
 
 @Component({
   selector: 'ingredient-list',
   template: `
     <ul>
-      <ingredient *ngFor="recipe.ingredients"></ingredient>
+      <ingredient *ngFor="let ingredient of recipe.ingredients" [ingredient]="ingredient" (ingredientChanged)="handleIngredientChanged($event)"></ingredient>
     </ul>
   `,
   styles: []
@@ -13,10 +13,16 @@ import { IRecipe } from '../recipe.component';
 export class IngredientListComponent implements OnInit {
 
   @Input() recipe: IRecipe
+  @Output() ingredientsChanged: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleIngredientChanged(){
+    console.log('handleIngredientChanged')
+    this.ingredientsChanged.emit(this.recipe.ingredients.every(i => i.checked))
   }
 
 }
