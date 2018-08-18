@@ -4,9 +4,10 @@ import { IRecipe, IIngredient } from '../recipe.component';
 @Component({
   selector: 'ingredient-list',
   template: `
-    <ul>
+    <mat-list>
+      <mat-divider></mat-divider>
       <ingredient *ngFor="let ingredient of recipe.ingredients" [ingredient]="ingredient" (ingredientChanged)="handleIngredientChanged($event)"></ingredient>
-    </ul>
+    </mat-list>
   `,
   styles: []
 })

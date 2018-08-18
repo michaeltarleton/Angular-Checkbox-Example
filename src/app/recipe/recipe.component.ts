@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   templateUrl: './recipe.component.html',
-  styles: []
+  styleUrls: ['./recipe.component.scss']
 })
 
 export class RecipeComponent implements OnInit {
@@ -29,7 +29,7 @@ export class RecipeComponent implements OnInit {
 
 export interface IIngredient {
   name: string,
-  checked: boolean
+  checked?: boolean
 }
 
 export interface IRecipe {
@@ -40,13 +40,10 @@ export interface IRecipe {
 const RECIPE: IRecipe = {
   name: 'Bread',
   ingredients: [
-    {
-      name: 'Yeast',
-      checked: false
-    },
-    {
-      name: 'Flour',
-      checked: false
-    }
+    { name: 'Yeast' },
+    { name: 'Flour' },
+    { name: 'Sugar' },
+    { name: 'Oil' },
+    { name: 'Eggs' }
   ]
 }

@@ -9,6 +9,12 @@ import { IngredientComponent } from './recipe/ingredient/ingredient.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { IngredientListComponent } from './recipe/ingredient/ingredient-list.component';
 
+import {
+  MatCardModule,
+  MatCheckboxModule,
+  MatListModule
+} from '@angular/material'
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,10 @@ import { IngredientListComponent } from './recipe/ingredient/ingredient-list.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

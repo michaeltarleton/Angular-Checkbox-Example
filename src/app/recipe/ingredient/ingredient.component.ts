@@ -4,10 +4,10 @@ import { IIngredient } from '../recipe.component';
 @Component({
   selector: 'ingredient',
   template: `
-    <li>
-      <input type="checkbox" (change)="handleCheck($event.target.checked)" [checked]="ingredient.checked" />
-      <label>{{ingredient.name}}</label>
-    </li>
+    <mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-checkbox type="checkbox" (change)="handleCheck($event.checked)" [checked]="ingredient.checked">{{ingredient.name}}</mat-checkbox>
+    </mat-list-item>
   `,
   styles: []
 })
@@ -22,6 +22,7 @@ export class IngredientComponent implements OnInit {
   }
 
   handleCheck(checked: boolean){
+    console.log('handleCheck', 'checked', checked)
     this.ingredient.checked = checked
     this.ingredientChanged.emit(checked)
   }

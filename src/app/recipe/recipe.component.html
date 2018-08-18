@@ -1,12 +1,15 @@
-<div>
-    <h1>Recipe</h1>
+<mat-card>
+    <mat-card-title><h1>Recipe</h1></mat-card-title>
 
-    <h2>Recipe Name</h2>
-    {{recipe.name}}
+    <mat-card-content>
+        <h2>Recipe Name</h2>
 
-    <h2>Ingredients</h2>
-    <p>
-        <input type="checkbox" [checked]="allIngredientsSelected" (change)="handleSelectAllChecked($event.target.checked)" /><label>select all</label>
-    </p>
-    <ingredient-list [recipe]="recipe" (ingredientsChanged)="handleIngredientsChanged($event)"></ingredient-list>
-</div>
+        {{recipe.name}}
+
+        <h2>Ingredients</h2>
+
+        <mat-checkbox id="selectAll" [checked]="allIngredientsSelected" (change)="handleSelectAllChecked($event.checked)">select all</mat-checkbox>
+
+        <ingredient-list [recipe]="recipe" (ingredientsChanged)="handleIngredientsChanged($event)"></ingredient-list>
+    </mat-card-content>
+</mat-card>
