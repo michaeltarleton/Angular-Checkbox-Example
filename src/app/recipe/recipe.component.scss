@@ -8,3 +8,20 @@ mat-card {
     justify-content: space-between;
     align-items: center;
 }
+
+mat-card-title {
+    div {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        & > * {
+            margin: 0;
+        }
+    }
+}
+
+.favorite-container {
+    flex-direction: column !important;
+    font-size: 14px;
+}

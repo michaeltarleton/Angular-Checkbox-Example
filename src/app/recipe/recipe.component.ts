@@ -6,20 +6,30 @@ import { IRecipe } from './common';
   template: `
     <div>
       <mat-card>
-          <mat-card-title><h1>Recipe</h1></mat-card-title>
-
-          <mat-card-content>
-
-            <h2>Name</h2> {{recipe.name}}
-
-            <div class="ingredients-header">
-              <h2>Ingredients</h2>
-              <mat-checkbox id="selectAll" [checked]="allIngredientsSelected" (change)="handleSelectAllChecked($event.checked)">select all</mat-checkbox>
+        <mat-card-title>
+          <div>
+            <h1>Recipe</h1>
+            <div class="favorite-container">
+              <button mat-icon-button [color]="favoriteColor" (click)="isFavorite = !isFavorite">
+                <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              </button>
+              <span *ngIf="isFavorite" [style.color]="'red'">I love it!</span>
             </div>
-            <ingredient-list [recipe]="recipe" (ingredientsChanged)="handleIngredientsChanged($event)"></ingredient-list>
+          </div>
+        </mat-card-title>
 
-            <mat-button></mat-button>
-            </mat-card-content>
+        <mat-card-content>
+
+        <h2>Name</h2> {{recipe.name}}
+
+        <div class="ingredients-header">
+          <h2>Ingredients</h2>
+          <mat-checkbox id="selectAll" [checked]="allIngredientsSelected" (change)="handleSelectAllChecked($event.checked)">select all</mat-checkbox>
+        </div>
+
+        <ingredient-list [recipe]="recipe" (ingredientsChanged)="handleIngredientsChanged($event)"></ingredient-list>
+
+        </mat-card-content>
       </mat-card>
     </div>
   `,
@@ -30,6 +40,7 @@ export class RecipeComponent implements OnInit {
 
   recipe: IRecipe
   allIngredientsSelected: boolean
+  isFavorite: boolean = false
 
   constructor(private route: ActivatedRoute) { }
 
@@ -45,5 +56,10 @@ export class RecipeComponent implements OnInit {
     this.recipe.ingredients = checked
       ? this.recipe.ingredients.map(i => { i.checked = true; return i })
       : this.recipe.ingredients.map(i => { i.checked = false; return i })
+  }
+
+  get favoriteColor(): string {
+    if(this.isFavorite) return 'warn'
+    return 'disabled'
   }
 }
