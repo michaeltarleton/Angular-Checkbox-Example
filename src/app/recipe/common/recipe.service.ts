@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IRecipe } from './recipe.interfaces';
+import { IRecipe, IIngredient } from './recipe.interfaces';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 
@@ -7,7 +7,7 @@ import { of } from 'rxjs/observable/of';
 export class RecipeService {
 
   private RECIPE: IRecipe = {
-    name: 'Bread',
+    name: 'Delicious Bread',
     ingredients: [
       { name: 'Yeast' },
       { name: 'Flour' },
@@ -20,7 +20,11 @@ export class RecipeService {
   constructor() { }
 
   getRecipe(): Observable<IRecipe> {
-    return of(this.RECIPE)
+    return of(this.RECIPE);
+  }
+
+  addIngredient(ingredient:IIngredient): void {
+    this.RECIPE.ingredients.push(ingredient);
   }
 
 }

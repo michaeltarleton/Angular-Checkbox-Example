@@ -1,2 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Forum');
+
+* {
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#header * {
+    overflow: hidden;
+    font-family: 'Forum', cursive;
+}
+
+img#header-background {
+    background-image: url('/assets/header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#footer {
+    background-image: linear-gradient(white,#F2E4D6);
+    background-position: center;
+    background-size: cover;
+    margin-top: 100px;
+    padding-top: 75px;
+    width: 100%;
+    height: 150px;
+    font-size: 12px;
+    text-align: center;
+}

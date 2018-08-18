@@ -13,6 +13,7 @@ import {
 } from '@angular/material'
 import { RecipeService } from './recipe/common/recipe.service';
 import { RecipeComponent, IngredientComponent, IngredientListComponent } from './recipe';
+import { AngularMaterialModule } from './anguler-material.module';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,9 @@ import { RecipeComponent, IngredientComponent, IngredientListComponent } from '.
     IngredientListComponent
   ],
   imports: [
+    AngularMaterialModule,
     BrowserModule,
     AppRoutingModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatListModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]
