@@ -4,23 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { RecipeComponent } from './recipe/recipe.component';
-import { IngredientComponent } from './recipe/ingredient/ingredient.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { IngredientListComponent } from './recipe/ingredient/ingredient-list.component';
 
 import {
   MatCardModule,
   MatCheckboxModule,
   MatListModule
 } from '@angular/material'
-
+import { RecipeService } from './recipe/common/recipe.service';
+import { RecipeComponent, IngredientComponent, IngredientListComponent } from './recipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeComponent,
     PageNotFoundComponent,
+    RecipeComponent,
     IngredientComponent,
     IngredientListComponent
   ],
@@ -31,7 +29,7 @@ import {
     MatCheckboxModule,
     MatListModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

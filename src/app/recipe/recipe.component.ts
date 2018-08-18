@@ -1,4 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IRecipe } from './common';
 
 @Component({
   templateUrl: './recipe.component.html',
@@ -10,10 +12,10 @@ export class RecipeComponent implements OnInit {
   recipe: IRecipe
   allIngredientsSelected: boolean
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.recipe = RECIPE
+    this.recipe = this.route.snapshot.data['recipe'];
   }
 
   handleIngredientsChanged(allIngredientsSelected: boolean): void {
@@ -25,25 +27,4 @@ export class RecipeComponent implements OnInit {
       ? this.recipe.ingredients.map(i => { i.checked = true; return i })
       : this.recipe.ingredients.map(i => { i.checked = false; return i })
   }
-}
-
-export interface IIngredient {
-  name: string,
-  checked?: boolean
-}
-
-export interface IRecipe {
-  name: string,
-  ingredients: IIngredient[]
-}
-
-const RECIPE: IRecipe = {
-  name: 'Bread',
-  ingredients: [
-    { name: 'Yeast' },
-    { name: 'Flour' },
-    { name: 'Sugar' },
-    { name: 'Oil' },
-    { name: 'Eggs' }
-  ]
 }
