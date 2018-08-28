@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IRecipe, IIngredient } from './recipe.interfaces';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs/observable/of';
+import { Observable ,  of } from 'rxjs';
 
 @Injectable()
 export class RecipeService {
