@@ -1,28 +1,32 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IIngredient } from '../common/recipe.interfaces';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { IIngredient } from '../common/recipe.interfaces'
 
 @Component({
   selector: 'ingredient',
   template: `
     <mat-list-item>
       <mat-divider></mat-divider>
-      <mat-checkbox type="checkbox" (change)="handleCheck($event.checked)" [checked]="ingredient.checked">{{ingredient.name}}</mat-checkbox>
+      <mat-checkbox
+        type="checkbox"
+        (change)="handleCheck($event.checked)"
+        [checked]="ingredient.checked"
+        >{{ ingredient.name }}</mat-checkbox
+      >
     </mat-list-item>
   `,
-  styles: []
+  styles: [],
 })
 export class IngredientComponent implements OnInit {
-
   @Input() ingredient: IIngredient
-  @Output() ingredientChanged: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() ingredientChanged: EventEmitter<boolean> = new EventEmitter<
+    boolean
+  >()
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  handleCheck(checked: boolean){
-    console.log('handleCheck', 'checked', checked)
+  handleCheck(checked: boolean) {
     this.ingredient.checked = checked
     this.ingredientChanged.emit(checked)
   }
