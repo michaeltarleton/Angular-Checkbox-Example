@@ -1,4 +1,10 @@
-import { Component, OnInit, Output } from '@angular/core'
+import {
+  Component,
+  OnInit,
+  Output,
+  ApplicationRef,
+  ChangeDetectorRef,
+} from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { IRecipe } from './common'
 
@@ -53,7 +59,10 @@ export class RecipeComponent implements OnInit {
   allIngredientsSelected = false
   isFavorite: boolean = false
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private appRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.recipe = this.route.snapshot.data['recipe']
@@ -61,6 +70,7 @@ export class RecipeComponent implements OnInit {
 
   handleIngredientsChanged(allIngredientsSelected: boolean): void {
     this.allIngredientsSelected = allIngredientsSelected
+    this.appRef.markForCheck()
     console.log(
       'handleIngredientsChanged',
       allIngredientsSelected,
